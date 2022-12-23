@@ -59,7 +59,6 @@ async function detailsPage(cityUrl, brand) {
                         arr[i]["phone"] = $(serviceCenter).children("td:nth-child(3)").text().split(" Phone:")[1]?.split(" \n")[0].replaceAll("\n","").replaceAll("\t","").trim()
                 })
             }else{
-                console.log(cityUrl)
             }
 
             resolve(arr)
