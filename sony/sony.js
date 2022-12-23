@@ -100,7 +100,6 @@ async function detailsPage(cityUrl, brand) {
             const htmlString = await rp(cityUrl)
             const $ = cheerio.load(htmlString)
             const postDiv = $(".post")
-            let count = 0
             
             const tableDiv = $(postDiv).find(" table > tbody > tr")
 
