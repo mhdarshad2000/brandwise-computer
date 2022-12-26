@@ -34,7 +34,7 @@ async function scrap() {
             }, 7000)
 
         } catch (error) {
-
+            console.log(error)
         }
     })
 }
@@ -55,7 +55,8 @@ async function detailsPage(cityUrl, brand) {
                     arr[i] = {}
                     arr[i]["serviceCenter"] = $(serviceCenter).children("td").children("h2").text().trim()
                     arr[i]["address"] = $(serviceCenter).children("td").children("div").text().split("(")[0]?.replaceAll("   ", "")?.replaceAll("\t", "")?.replaceAll("\n", " ").trim()
-                    arr[i]["phone"] = "(" + $(serviceCenter).children("td").children("div").text().split("(")[1]?.replace(/[a-z]/gi, '')?.replace(/[@.-]/g, "").trim()
+                    const phone = $(serviceCenter).children("td").children("div").text().split("(")[1]?.replace(/[a-z]/gi, '')?.replace(/[@.-]/g, "").trim()
+                    arr[i]["phone"] = phone ? "("+phone : ""
                 })
             
             } else{
